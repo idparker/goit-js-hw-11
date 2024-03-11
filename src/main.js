@@ -1,4 +1,3 @@
-// main.js
 import { fetchImages } from './js/pixabay-api.js';
 import {
   renderImages,
@@ -13,7 +12,7 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 const gallery = document.querySelector('.gallery');
 const searchInput = document.querySelector('input');
 const form = document.querySelector('form');
-const loaderContainer = document.querySelector('.loader');
+const loaderContainer = document.querySelector('.loader-container');
 
 function getImages(event) {
   event.preventDefault();
@@ -37,6 +36,9 @@ function getImages(event) {
       } else {
         showErrorToast('Failed to fetch images. Please try again later.');
       }
+    })
+    .finally(() => {
+      loaderContainer.style.display = 'none';
     });
 }
 
