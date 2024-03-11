@@ -1,6 +1,7 @@
 // render-functions.js
-import iziToast from 'izitoast';
 import SimpleLightbox from 'simplelightbox';
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
 const gallery = document.querySelector('.gallery');
@@ -48,5 +49,6 @@ export function showErrorToast(message) {
 export function showEmptyMessage() {
   gallery.innerHTML =
     '<p class="empty-message">По вашему запросу не найдено ни одного изображения. Попробуйте еще раз!</p>';
+  showErrorToast('Error.');
   loaderContainer.style.display = 'none';
 }
